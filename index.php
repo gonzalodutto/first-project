@@ -494,12 +494,22 @@
         </div>
       </div>
     </section>
-    <section class="section-form">
+    <section class="section-form" id="form">
       <div class="row">
         <h2>We're happy to hear from you</h2>
       </div>
       <div class="row">
-        <form method="POST" action="#" class="contact-form">
+        <form method="POST" action="mailer.php" class="contact-form">
+          <div class="row">
+            <?php
+            if($_GET['succes'] == 1) {
+              echo "<div class=\"form-messages success\">Thank you! Your message has been sent.</div>";
+            }
+            if($_GET['succes'] == -1) {
+              echo "<div class=\"form-messages error\">Oops! Something went wrong. Please try again!</div>";
+            }
+            ?>
+          </div>
           <div class="row">
             <div class="col span-1-of-3">
               <label for="name">Name</label>
@@ -595,7 +605,6 @@
         <p>Copyright &copy; 2021 by Omnifood. All rights reserved.</p>
       </div>
     </footer>
-    <!-- <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="vendors/js/jquery.waypoints.min.js"></script>
     <script src="resources/js/script.js"></script>
